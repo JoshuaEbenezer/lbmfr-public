@@ -5,7 +5,7 @@ import os
 import glob
 import pandas as pd
 
-sureal_csv = pd.read_csv('./lbvfr_for_sureal.csv')
+sureal_csv = pd.read_csv('./lbmfr_sureal_scores.csv')
 
 video_names = sureal_csv['video']
 content = [v.split('_')[0]+'_'+v.split('_')[-1] for v in video_names]

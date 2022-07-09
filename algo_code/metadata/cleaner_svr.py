@@ -38,7 +38,7 @@ def results(all_preds,all_dmos):
         preds_fitted = all_preds
     preds_srocc = spearmanr(preds_fitted,all_dmos)
     preds_lcc = pearsonr(preds_fitted,all_dmos)
-    preds_rmse = np.sqrt(np.mean(preds_fitted-all_dmos)**2)
+    preds_rmse = np.sqrt(np.mean((preds_fitted-all_dmos)**2))
     return preds_srocc[0],preds_lcc[0],preds_rmse
 
 
@@ -159,21 +159,21 @@ def only_test(r):
 
 #only_train(0)
 #only_test(0)
-srocc_list = train_test(0) 
+#srocc_list = train_test(0) 
 #print(srocc_list)
-#srocc_list = Parallel(n_jobs=-1,verbose=0)(delayed(train_test)(i) for i in range(100))
-####srocc_list = np.nan_to_num(srocc_list)
-#print("median srocc is")
-#print(np.median([s[0] for s in srocc_list]))
-#print("median lcc is")
-#print(np.median([s[1] for s in srocc_list]))
-#print("median rmse is")
-#print(np.median([s[2] for s in srocc_list]))
-#print("std of srocc is")
-#print(np.std([s[0] for s in srocc_list]))
-#print("std of lcc is")
-#print(np.std([s[1] for s in srocc_list]))
-#print("std of rmse is")
-#print(np.std([s[2] for s in srocc_list]))
-###
-#
+srocc_list = Parallel(n_jobs=-1,verbose=0)(delayed(train_test)(i) for i in range(100))
+###srocc_list = np.nan_to_num(srocc_list)
+print("median srocc is")
+print(np.median([s[0] for s in srocc_list]))
+print("median lcc is")
+print(np.median([s[1] for s in srocc_list]))
+print("median rmse is")
+print(np.median([s[2] for s in srocc_list]))
+print("std of srocc is")
+print(np.std([s[0] for s in srocc_list]))
+print("std of lcc is")
+print(np.std([s[1] for s in srocc_list]))
+print("std of rmse is")
+print(np.std([s[2] for s in srocc_list]))
+##
+
